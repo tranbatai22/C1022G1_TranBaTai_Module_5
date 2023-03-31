@@ -12,16 +12,16 @@ class Header extends Component {
               </a>
             </li>
             <li>
-              <a href="facilities.html">Dịch vụ</a>
+              <a href="facilities/list.html">Dịch vụ</a>
             </li>
             <li>
               <a href="">Đội ngũ</a>
             </li>
             <li>
-              <a href="customers.html">Khách hàng</a>
+              <a href="customers/list.html">Khách hàng</a>
             </li>
             <li>
-              <a href="contract.html">Hợp đồng</a>
+              <a href="contract/list.html">Hợp đồng</a>
             </li>
           </ul>
         </div>

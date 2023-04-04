@@ -1,5 +1,5 @@
 import React from "react";
-
+import Facility from "./Facility";
 function FacilityList() {
     return (
         <div>
@@ -26,8 +26,27 @@ function FacilityList() {
                     <th>Delete</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr></tr>
+                <tbody align="center">
+                {Facility.facility.map((facilityList, index) =>
+
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{facilityList.name}</td>
+                        <td>{facilityList.area}</td>
+                        <td>{facilityList.cost}</td>
+                        <td>{facilityList.maxPeople}</td>
+                        <td>{facilityList.standardRoom}</td>
+                        <td>{facilityList.description}</td>
+                        <td>{facilityList.poolArea}</td>
+                        <td>{facilityList.numberOfFloors}</td>
+                        <td>{facilityList.facilityFree}</td>
+                        <td>{facilityList.rentType.name}</td>
+                        <td>{facilityList.facilityType.name}</td>
+                        <td><button className="btn btn-outline-secondary" style={{ color: "blue" }}>Edit</button></td>
+                        <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
+                    </tr>
+                )
+                }
                 </tbody>
             </table>
         </div>

@@ -22,7 +22,7 @@ function App() {
         <div className="App">
             <Header/>
             <Navbar/>
-            <ContractCreate/>
+            <FacilityList/>
             <Footer/>
         </div>
     );

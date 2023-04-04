@@ -33,7 +33,7 @@ function ContactForm() {
                 >
 
                     {({isSubmitting}) => (
-                        <form>
+                        <Form>
                             <h1>Contact form</h1>
                             <div className={"mb-3"}>
                                 <label htmlFor='name' className='form-label'>Name</label>
@@ -59,18 +59,18 @@ function ContactForm() {
                                        name='message'/>
                             </div>
 
-                            {
-                                isSubmitting ?
-                                    <RotatingLines
-                                        strokeColor="grey"
-                                        strokeWidth="5"
-                                        animationDuration="0.75"
-                                        width="50"
-                                        visible={true}
-                                    /> :
-                                    <button type={"submit"} className={'btn btn-primary'}>Submit</button>
+                            {isSubmitting ?
+                                <RotatingLines
+                                    strokeColor="grey"
+                                    strokeWidth="5"
+                                    animationDuration="0.75"
+                                    width="50"
+                                    visible={true}
+                                />
+                                :
+                                <button type='submit' className='btn btn-primary'>Submit</button>
                             }
-                        </form>
+                        </Form>
                     )}
                 </Formik>
             </center>

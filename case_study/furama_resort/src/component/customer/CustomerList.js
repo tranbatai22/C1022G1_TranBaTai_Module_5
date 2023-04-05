@@ -1,5 +1,5 @@
 import React from "react";
-
+import Customer from "./Customer";
 function CustomerList() {
     return (
         <div>
@@ -23,6 +23,25 @@ function CustomerList() {
                     <th>Delete</th>
                 </tr>
                 </thead>
+                <tbody>
+                {Customer.customer.map((customerList, index) =>
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{customerList.name}</td>
+                        <td>{customerList.birthday}</td>
+                        <td>{customerList.gender}</td>
+                        <td>{customerList.idCard}</td>
+                        <td>{customerList.phone}</td>
+                        <td>{customerList.email}</td>
+                        <td>{customerList.address}</td>
+                        <td>{customerList.customerType.name}</td>
+                        <td><button className="btn btn-outline-secondary" style={{ color: "blue" }}>Edit</button></td>
+                        <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
+
+
+                    </tr>
+                )}
+                </tbody>
             </table>
         </div>
 

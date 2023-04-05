@@ -19,10 +19,10 @@ import ContractCreate from "./component/contract/ContractCreate";
 
 function App() {
     return (
-        <div className="App">
+        <div>
             <Header/>
             <Navbar/>
-            <FacilityList/>
+            <CustomerList/>
             <Footer/>
         </div>
     );

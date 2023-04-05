@@ -21,8 +21,7 @@ function App() {
     return (
         <div>
             <Header/>
-            <Navbar/>
-            <CustomerList/>
+            <Home/>
             <Footer/>
         </div>
     );

@@ -1,5 +1,7 @@
 import React from "react";
-
+import {Link, NavLink, Route, Routes} from 'react-router-dom';
+import Customer from "../customer/Customer";
+import Navbar from "./Navbar";
 function Home() {
     return (
         <>
@@ -10,6 +12,7 @@ function Home() {
                         <div className="navbar-nav col-lg-8">
                             <div>
                                 <button type="button" className="btn btn-close-white">
+                                    <link/>
                                     <a href="/home" style={{textDecoration: "none"}}>
                                         TRANG CHỦ
                                     </a>
@@ -24,9 +27,10 @@ function Home() {
                             </div>
                             <div style={{marginLeft: 30}}>
                                 <button type="button" className="btn btn-close-white">
-                                    <a href="/customer" style={{textDecoration: "none"}}>
-                                        KHÁCH HÀNG
-                                    </a>
+                                    <NavLink to='/customer'>Khách hàng</NavLink>
+                                    <Routes>
+                                        <Route path='/customer' element={<Customer/>}/>
+                                    </Routes>
                                 </button>
                             </div>
                             <div style={{marginLeft: 30}}>

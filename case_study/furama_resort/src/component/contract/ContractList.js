@@ -1,6 +1,7 @@
 import React from "react";
-
-
+import Contract from "./Contract";
+import Facility from "../facility/Facility";
+import Customer from "../customer/Customer";
 function ContractList() {
     return (
         <div>
@@ -18,9 +19,26 @@ function ContractList() {
                     <th>Date End</th>
                     <th>Deposit</th>
                     <th>Total Money</th>
-                    <th>Dịch vụ đi kèm</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
+                <tbody>
+                {Contract.contract.map((contractList, index)=>
+                <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{contractList.facility.name}</td>
+                    <td>{contractList.customer.name}</td>
+                    <td>{contractList.dateStart}</td>
+                    <td>{contractList.dateEnd}</td>
+                    <td>{contractList.deposit}</td>
+                    <td>{contractList.totalMoney}</td>
+                    <td><button className="btn btn-outline-secondary" style={{ color: "blue" }}>Edit</button></td>
+                    <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
+
+                </tr>
+                )}
+                </tbody>
             </table>
         </div>
     )

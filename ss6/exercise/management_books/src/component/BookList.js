@@ -15,10 +15,6 @@ const BookList = () => {
     const handleDelete = (id) => {
         axios
             .delete(`http://localhost:3000/books/${id}`)
-            .then(() => {
-                alert("Delete successfully");
-                setBooks(books.filter((book) => book.id !== id));
-            })
             .catch((error) => console.log(error));
     };
 

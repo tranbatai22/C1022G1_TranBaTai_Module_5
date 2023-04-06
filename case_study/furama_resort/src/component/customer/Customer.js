@@ -26,6 +26,20 @@ const customer = [
             id: 2,
             name: "Thường"
         }
+    },
+    {
+        id: 2,
+        name: "Lê Đức Nghĩa",
+        birthday: "22/02/2003",
+        gender: "Nữ",
+        idCard: "888889999",
+        phone: "01234589",
+        email: "nghiaml@gmail.com",
+        address: "Đà Nẵng",
+        customerType: {
+            id: 2,
+            name: "Thường"
+        }
     }
 ]
 

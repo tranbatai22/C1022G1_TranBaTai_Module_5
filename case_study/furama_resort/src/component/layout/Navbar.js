@@ -9,37 +9,45 @@ function Navbar() {
                     <div className="col-lg-1"/>
                     <div className="navbar-nav col-lg-8">
                         <div>
-                            <button type="button" className="btn btn-close-white">
-                                <NavLink to='/'>TRANG CHỦ</NavLink>
-                            </button>
+                            <NavLink to='/' style={{color: "white", textDecoration: "none"}}>
+                                <button type="button" className="btn btn-outline-secondary">
+                                    TRANG CHỦ
+                                </button>
+                            </NavLink>
                         </div>
                         <div style={{marginLeft: 30}}>
-                            <button type="button" className="btn btn-close-white">
-                                <a href="/employee" style={{textDecoration: "none"}}>
-                                    NHÂN VIÊN
-                                </a>
-                            </button>
+                            <NavLink to='/customerList' style={{color: "white", textDecoration: "none"}}>
+                                <button type="button" className="btn btn-outline-secondary"> KHÁCH HÀNG
+                                </button>
+                            </NavLink>
                         </div>
                         <div style={{marginLeft: 30}}>
-                            <button type="button" className="btn btn-close-white">
-                                <NavLink to='/customerList'>Khách hàng</NavLink>
-                            </button>
+                            <NavLink to='/facilityList' style={{color: "white", textDecoration: "none"}}>
+                                <button type="button" className="btn btn-outline-secondary">
+                                    DỊCH VỤ
+                                </button>
+                            </NavLink>
                         </div>
                         <div style={{marginLeft: 30}}>
-                            <button type="button" className="btn btn-close-white">
-                                <NavLink to='/facilityList'>Dịch vụ</NavLink>
-                            </button>
-                        </div>
-                        <div style={{marginLeft: 30}}>
-                            <button type="button" className="btn btn-close-white">
-                                <NavLink to='/contractList'>Hợp đồng</NavLink>
-                            </button>
+                            <NavLink to='/contractList' style={{color: "white", textDecoration: "none"}}>
+                                <button type="button" className="btn btn-outline-secondary">
+                                    HỢP ĐỒNG
+                                </button>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="col-lg-3">
                         <form className="d-flex" method="get">
-                            <button className="btn btn-close-white">Đăng kí</button>
-                            <button className="btn btn-close-white">Đăng nhập</button>
+                            <div>
+                                <button className="btn btn-outline-secondary"
+                                        style={{color: "white", textDecoration: "none"}}>Đăng kí
+                                </button>
+                            </div>
+                            <div>
+                                <button className="btn btn-outline-secondary"
+                                        style={{color: "white", textDecoration: "none"}}>Đăng nhập
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

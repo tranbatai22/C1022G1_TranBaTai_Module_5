@@ -7,20 +7,21 @@ function ListTodo() {
     const [todo,setTodo] = useState([]);
     const navigate = useNavigate();
 
+    const fetchApi = async () => {
+        try {
+            const result = await axios.get('http://localhost:4000/listTodo')
+            setTodo(result.data);
+        }catch (e) {
+            console.log(e);
+        }
+    };
+
     useEffect(() =>{
-        const fetchApi = async () => {
-            try {
-                const result = await axios.get('http://localhost:4000/listTodo')
-                setTodo(result.data);
-            }catch (e) {
-                console.log(e);
-            }
-        };
       fetchApi();
     }, []);
+
     const handleUpdate = (arrIndex) => {
         navigate(`/update/${arrIndex}`);
-
     };
     return (
         <>

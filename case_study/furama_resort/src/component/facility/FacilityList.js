@@ -1,13 +1,17 @@
 import React from "react";
 import Facility from "./Facility";
 import {NavLink} from "react-router-dom";
+
 function FacilityList() {
     return (
         <div>
             <center>
                 <h1>DANH SÁCH DỊCH VỤ</h1>
-                <button className="btn btn-outline-primary">
-                    <NavLink to='/facilityCreate'>Thêm mới dịch vụ</NavLink></button>
+                <NavLink to='/facilityCreate' style={{textDecoration: "none"}}>
+                    <button className="btn btn-outline-primary">
+                        Thêm mới dịch vụ
+                    </button>
+                </NavLink>
             </center>
             <table className="table table-light">
                 <thead>
@@ -45,10 +49,20 @@ function FacilityList() {
                         <td>{facilityList.rentType.name}</td>
                         <td>{facilityList.facilityType.name}</td>
                         <td>
-                            <button className="btn btn-outline-secondary" style={{ color: "blue" }}>
-                            <NavLink to='/facilityUpdate'>Chỉnh sửa</NavLink>
-                        </button></td>
-                        <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
+                            <NavLink to='/facilityUpdate' style={{textDecoration: "none"}}>
+                                <button className="btn btn-outline-secondary" style={{color: "blue"}}>
+                                    Chỉnh sửa
+                                </button>
+                            </NavLink>
+                        </td>
+                        <td>
+                            <NavLink to='/facilityUpdate'
+                                     style={{textDecoration: "none", color: "red"}}>
+                                <button className="btn btn-outline-secondary" style={{color: "red"}}>
+                                    Xoá
+                                </button>
+                            </NavLink>
+                        </td>
                     </tr>
                 )
                 }

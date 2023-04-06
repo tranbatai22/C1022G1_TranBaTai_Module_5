@@ -1,14 +1,17 @@
 import React from "react";
 import Customer from "./Customer";
 import {NavLink} from "react-router-dom";
+
 function CustomerList() {
     return (
         <div>
             <center>
                 <h1>DANH SÁCH KHÁCH HÀNG</h1>
-                <button className="btn btn-outline-primary">
-                    <NavLink to='/customerCreate'>Thêm mới khách hàng</NavLink>
-                 </button>
+                <NavLink to='/customerCreate' style={{textDecoration: "none"}}>
+                    <button className="btn btn-outline-primary">
+                        Thêm mới khách hàng
+                    </button>
+                </NavLink>
             </center>
             <table className="table table-light">
                 <thead>
@@ -39,13 +42,20 @@ function CustomerList() {
                         <td>{customerList.address}</td>
                         <td>{customerList.customerType.name}</td>
                         <td>
-                            <button className="btn btn-outline-secondary" style={{ color: "blue" }}>
-                                 <NavLink to='/customerUpdate'>Chỉnh sửa</NavLink>
-                            </button>
+                            <NavLink to='/customerUpdate' style={{textDecoration: "none"}}>
+                                <button className="btn btn-outline-secondary" style={{color: "blue"}}>
+                                    Chỉnh sửa
+                                </button>
+                            </NavLink>
                         </td>
-                        <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
-
-
+                        <td>
+                            <NavLink to='/customerUpdate'
+                                     style={{textDecoration: "none"}}>
+                                <button className="btn btn-outline-secondary" style={{color: "red"}}>
+                                    Xoá
+                                </button>
+                            </NavLink>
+                        </td>
                     </tr>
                 )}
                 </tbody>

@@ -19,6 +19,7 @@ function App() {
             <Header/>
             <Navbar/>
             <Routes>
+                {/*home*/}
                 <Route path='/' element={<Home/>}/>
                 {/*customer*/}
                 <Route path='/customerList' element={<CustomerList/>}/>

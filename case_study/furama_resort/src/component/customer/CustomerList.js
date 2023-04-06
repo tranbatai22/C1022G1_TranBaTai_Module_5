@@ -1,11 +1,14 @@
 import React from "react";
 import Customer from "./Customer";
+import {NavLink} from "react-router-dom";
 function CustomerList() {
     return (
         <div>
             <center>
                 <h1>DANH SÁCH KHÁCH HÀNG</h1>
-                <button className="btn btn-outline-primary">Thêm mới khách hàng</button>
+                <button className="btn btn-outline-primary">
+                    <NavLink to='/customerCreate'>Thêm mới khách hàng</NavLink>
+                 </button>
             </center>
             <table className="table table-light">
                 <thead>
@@ -35,7 +38,11 @@ function CustomerList() {
                         <td>{customerList.email}</td>
                         <td>{customerList.address}</td>
                         <td>{customerList.customerType.name}</td>
-                        <td><button className="btn btn-outline-secondary" style={{ color: "blue" }}>Edit</button></td>
+                        <td>
+                            <button className="btn btn-outline-secondary" style={{ color: "blue" }}>
+                                 <NavLink to='/customerUpdate'>Chỉnh sửa</NavLink>
+                            </button>
+                        </td>
                         <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
 
 

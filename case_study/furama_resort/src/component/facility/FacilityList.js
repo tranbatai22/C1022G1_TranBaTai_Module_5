@@ -1,11 +1,13 @@
 import React from "react";
 import Facility from "./Facility";
+import {NavLink} from "react-router-dom";
 function FacilityList() {
     return (
         <div>
             <center>
                 <h1>DANH SÁCH DỊCH VỤ</h1>
-                <button className="btn btn-outline-primary">Thêm mới dịch vụ</button>
+                <button className="btn btn-outline-primary">
+                    <NavLink to='/facilityCreate'>Thêm mới dịch vụ</NavLink></button>
             </center>
             <table className="table table-light">
                 <thead>
@@ -42,7 +44,10 @@ function FacilityList() {
                         <td>{facilityList.facilityFree}</td>
                         <td>{facilityList.rentType.name}</td>
                         <td>{facilityList.facilityType.name}</td>
-                        <td><button className="btn btn-outline-secondary" style={{ color: "blue" }}>Edit</button></td>
+                        <td>
+                            <button className="btn btn-outline-secondary" style={{ color: "blue" }}>
+                            <NavLink to='/facilityUpdate'>Chỉnh sửa</NavLink>
+                        </button></td>
                         <td><button className="btn btn-outline-secondary" style={{ color: "red" }}>Delete</button></td>
                     </tr>
                 )

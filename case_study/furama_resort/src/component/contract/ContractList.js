@@ -2,12 +2,15 @@ import React from "react";
 import Contract from "./Contract";
 import Facility from "../facility/Facility";
 import Customer from "../customer/Customer";
+import {NavLink} from "react-router-dom";
 function ContractList() {
     return (
         <div>
             <center>
                 <h1>DANH SÁCH HỢP ĐỒNG</h1>
-                <button className="btn btn-outline-primary">Thêm mới hợp đồng</button>
+                <button className="btn btn-outline-primary">
+                    <NavLink to='/facilityUpdate'>Thêm mới hợp đồng</NavLink>
+                </button>
             </center>
             <table className="table table-light">
                 <thead>

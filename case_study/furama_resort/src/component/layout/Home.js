@@ -5,59 +5,6 @@ import Navbar from "./Navbar";
 function Home() {
     return (
         <>
-            <div className="row" style={{background: "#046056", height: 60, textAlign: "center"}}>
-                <nav className="navbar navbar-expand-lg" style={{background: "#046056"}}>
-                    <div className="collapse navbar-collapse container-fluid" id="navbarNavAltMarkup">
-                        <div className="col-lg-1"/>
-                        <div className="navbar-nav col-lg-8">
-                            <div>
-                                <button type="button" className="btn btn-close-white">
-                                    <link/>
-                                    <a href="/home" style={{textDecoration: "none"}}>
-                                        TRANG CHỦ
-                                    </a>
-                                </button>
-                            </div>
-                            <div style={{marginLeft: 30}}>
-                                <button type="button" className="btn btn-close-white">
-                                    <a href="/employee" style={{textDecoration: "none"}}>
-                                        NHÂN VIÊN
-                                    </a>
-                                </button>
-                            </div>
-                            <div style={{marginLeft: 30}}>
-                                <button type="button" className="btn btn-close-white">
-                                    <NavLink to='/customer'>Khách hàng</NavLink>
-                                    <Routes>
-                                        <Route path='/customer' element={<Customer/>}/>
-                                    </Routes>
-                                </button>
-                            </div>
-                            <div style={{marginLeft: 30}}>
-                                <button type="button" className="btn btn-close-white">
-                                    <a href="/facility" style={{textDecoration: "none"}}>
-                                        DỊCH VỤ
-                                    </a>
-                                </button>
-                            </div>
-                            <div style={{marginLeft: 30}}>
-                                <button type="button" className="btn btn-close-white">
-                                    <a href="/contract" style={{textDecoration: "none"}}>
-                                        HỢP ĐỒNG
-                                    </a>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="col-lg-3">
-                            <form className="d-flex" method="get">
-                                <button className="btn btn-close-white">Đăng kí</button>
-                                <button className="btn btn-close-white">Đăng nhập</button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
             <div style={{width: "100%", height: "30%"}}>
                 <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-inner">

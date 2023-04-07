@@ -158,7 +158,8 @@ function CustomerCreate() {
                                     <span className="input-group-text"/>
                                 </div>
                                 <div>
-                                    <ErrorMessage name='customerType' component='span' className='form-err text-danger'/>
+                                    <ErrorMessage name='customerType' component='span'
+                                                  className='form-err text-danger'/>
                                 </div>
                             </div>
 

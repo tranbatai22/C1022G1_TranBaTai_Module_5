@@ -18,7 +18,11 @@ function List() {
     const handleDelete = async (id) => {
         await bookService.remove(id)
         let res = await bookService.findAll();
-        setBook(res)
+        setBook(res);
+    }
+
+    const handleUpdate = (id) => {
+        navigate(`/update/${id}`)
     }
 
     return (
@@ -39,6 +43,12 @@ function List() {
                         <td>{books.id}</td>
                         <td>{books.title}</td>
                         <td>{books.quantity}</td>
+                        <td>
+                            <button type='button' onClick={() =>
+                                handleUpdate(books.id)} >
+                                Edit
+                            </button>
+                        </td>
                         <td>
                             <button onClick={() =>
                                 handleDelete(books.id)}>

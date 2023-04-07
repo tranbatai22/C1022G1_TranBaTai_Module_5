@@ -24,3 +24,19 @@ export const remove = async (id) => {
         console.log(error);
     }
 }
+
+export const detail = async(id)=>{
+    try {
+        return (await axios.get(`http://localhost:8080/books/${id}`)).data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const update = async (id) => {
+    try {
+        await axios.put(`http://localhost:8080/books/${id}`);
+    } catch (error) {
+        console.log(error);
+    }
+}

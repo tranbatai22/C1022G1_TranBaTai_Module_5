@@ -56,7 +56,7 @@ function FacilityList() {
                             </NavLink>
                         </td>
                         <td>
-                            <NavLink to='/facilityUpdate'
+                            <NavLink to='/facilityDelete'
                                      style={{textDecoration: "none", color: "red"}}>
                                 <button className="btn btn-outline-secondary" style={{color: "red"}}>
                                     Xoá

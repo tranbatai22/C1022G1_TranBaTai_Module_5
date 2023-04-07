@@ -1,4 +1,4 @@
-import request from '../http-common/http_request'
+import request from '../http-common/http_request';
 
 const findAll = () => {
     return request.get('/users')

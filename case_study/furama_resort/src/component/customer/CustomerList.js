@@ -49,7 +49,7 @@ function CustomerList() {
                             </NavLink>
                         </td>
                         <td>
-                            <NavLink to='/customerUpdate'
+                            <NavLink to='/customerDelete'
                                      style={{textDecoration: "none"}}>
                                 <button className="btn btn-outline-secondary" style={{color: "red"}}>
                                     Xoá

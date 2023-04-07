@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Field, Formik} from 'formik';
 import * as bookService from '../service/BookService'
-import {useNavigate} from "react-router";
-import {ClassDeclaration as param} from "@babel/types/lib";
+import {useNavigate, useParams} from "react-router";
+
 
 function Update() {
+    let param = useParams()
     let navigate = useNavigate();
-    const [books, setBook] = useState([]);
+    const [books, setBook] = useState();
     useEffect(() => {
         const fetchApi = async () => {
             const res = await bookService.detail(param.id)
@@ -14,6 +15,7 @@ function Update() {
         }
         fetchApi()
     }, [])
+
     return (
         <Formik
             initialValues={{
@@ -30,21 +32,21 @@ function Update() {
                 update();
             }}
         >
+
             <Form>
-                <div>
-                    <Field type='hidden' id='id' name='id'/>
+                <Field type="hidden" name="id"/>
+
+                <div className="form-group">
+                    <label htmlFor="">Title</label>
+                    <Field type="text" name="title" id=""/>
                 </div>
-                <div>
-                    <label htmlFor='title'>Title</label>
-                    <Field id='title' name='title'/>
+
+                <div className="form-group">
+                    <label htmlFor="">Quantity</label>
+                    <Field type="text" name="quantity" id=""/>
                 </div>
-                <div>
-                    <label htmlFor='quantity'>Quantity</label>
-                    <Field id='quantity' name='quantity'/>
-                </div>
-                <div>
-                    <button type='submit'>Ok</button>
-                </div>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
             </Form>
         </Formik>
     );

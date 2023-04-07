@@ -6,8 +6,11 @@ import {useNavigate, useParams} from "react-router";
 
 function Update() {
     let param = useParams()
+
     let navigate = useNavigate();
+
     const [books, setBook] = useState();
+
     useEffect(() => {
         const fetchApi = async () => {
             const res = await bookService.detail(param.id)
@@ -20,7 +23,6 @@ function Update() {
     if (!books) {
         return null;
     }
-
     return (
         <Formik
             initialValues={{

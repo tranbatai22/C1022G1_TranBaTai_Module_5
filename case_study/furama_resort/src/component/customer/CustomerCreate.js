@@ -1,7 +1,8 @@
 import React from "react";
 
 function CustomerCreate() {
-    return (<div>
+    return (
+        <div>
             <center>
                 <h1 style={{fontWeight: "bold"}}>Thêm mới khách hàng</h1>
                 <form className="w-50 border border-2 border-success p-3 rounded">

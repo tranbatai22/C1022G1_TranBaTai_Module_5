@@ -12,9 +12,14 @@ function Update() {
         const fetchApi = async () => {
             const res = await bookService.detail(param.id)
             setBook(res)
+            console.log(res)
         }
         fetchApi()
     }, [])
+
+    if (!books) {
+        return null;
+    }
 
     return (
         <Formik

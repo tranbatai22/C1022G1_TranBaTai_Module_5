@@ -33,9 +33,9 @@ export const detail = async(id)=>{
     }
 }
 
-export const update = async (id) => {
+export const update = async (book) => {
     try {
-        await axios.put(`http://localhost:8080/books/${id}`);
+        await axios.put(`http://localhost:8080/books/${book.id}`,{ ...book });
     } catch (error) {
         console.log(error);
     }

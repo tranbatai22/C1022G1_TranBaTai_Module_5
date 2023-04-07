@@ -19,7 +19,9 @@ function FacilityCreate() {
         }}
                 validationSchema={Yup.object({
                     name: Yup.string()
-                        .required("Không được để trống"),
+                        .required("Không được để trống")
+                        .matches(/^[a-zA-Z ]*$/,
+                            "Tên không đúng định dạng"),
                     area: Yup.number()
                         .required("Không được để trống"),
                     cost: Yup.number()

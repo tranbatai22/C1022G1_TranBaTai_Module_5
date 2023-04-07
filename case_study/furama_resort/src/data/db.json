@@ -1,0 +1,192 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Trần Bá Tài",
+      "birthday": "22/02/2004",
+      "gender": "Nam",
+      "idCard": "999999999",
+      "phone": "0961487519",
+      "email": "tranbatai2202@gmail.com",
+      "address": "Huế",
+      "customerType": {
+        "id": 1,
+        "name": "VIP"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Lê Đức Nghĩa",
+      "birthday": "22/02/2003",
+      "gender": "Nữ",
+      "idCard": "888889999",
+      "phone": "01234589",
+      "email": "nghiaml@gmail.com",
+      "address": "Đà Nẵng",
+      "customerType": {
+        "id": 2,
+        "name": "Thường"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Lê Đức Nghĩa",
+      "birthday": "22/02/2003",
+      "gender": "Nữ",
+      "idCard": "888889999",
+      "phone": "01234589",
+      "email": "nghiaml@gmail.com",
+      "address": "Đà Nẵng",
+      "customerType": {
+        "id": 2,
+        "name": "Thường"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "VIP"
+    },
+    {
+      "id": 2,
+      "name": "Thường"
+    }
+  ],
+  "facility": [
+    {
+      "id": 1,
+      "name": "Bơi lội",
+      "area": 100,
+      "cost": 50,
+      "maxPeople": 20,
+      "facilityType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "rentType": {
+        "id": 1,
+        "name": "VND"
+      },
+      "standardRoom": "Twin bedroom",
+      "description": "Tốt",
+      "poolArea": 50,
+      "numberOfFloors": 3,
+      "facilityFree": "đồ bơi, kính bơi",
+      "status": false
+    },
+    {
+      "id": 2,
+      "name": "Bơi lội",
+      "area": 100,
+      "cost": 50,
+      "maxPeople": 20,
+      "facilityType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "rentType": {
+        "id": 1,
+        "name": "VND"
+      },
+      "standardRoom": "Twin bedroom",
+      "description": "Tốt",
+      "poolArea": 50,
+      "numberOfFloors": 3,
+      "facilityFree": "đồ bơi, kính bơi",
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "Bơi lội",
+      "area": 100,
+      "cost": 50,
+      "maxPeople": 20,
+      "facilityType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "rentType": {
+        "id": 1,
+        "name": "VND"
+      },
+      "standardRoom": "Twin bedroom",
+      "description": "Tốt",
+      "poolArea": 50,
+      "numberOfFloors": 3,
+      "facilityFree": "đồ bơi, kính bơi",
+      "status": false
+    }
+  ],
+  "facilityType": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "VND"
+    },
+    {
+      "id": 2,
+      "name": "USD"
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "facility": {
+        "id": 1,
+        "name": "Bơi lội"
+      },
+      "customer": {
+        "id": 1,
+        "name": "Trần Bá Tài"
+      },
+      "dateStart": "02/02/2020",
+      "dateEnd": "03/03/2021",
+      "deposit": 3000,
+      "totalMoney": 5000
+    },
+    {
+      "id": 2,
+      "facility": {
+        "id": 1,
+        "name": "Bơi lội"
+      },
+      "customer": {
+        "id": 1,
+        "name": "Trần Bá Tài"
+      },
+      "dateStart": "02/02/2020",
+      "dateEnd": "03/03/2021",
+      "deposit": 3000,
+      "totalMoney": 5000
+    },
+    {
+      "id": 3,
+      "facility": {
+        "id": 1,
+        "name": "Bơi lội"
+      },
+      "customer": {
+        "id": 1,
+        "name": "Trần Bá Tài"
+      },
+      "dateStart": "02/02/2020",
+      "dateEnd": "03/03/2021",
+      "deposit": 3000,
+      "totalMoney": 5000
+    }
+  ]
+}

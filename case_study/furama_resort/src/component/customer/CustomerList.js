@@ -1,7 +1,26 @@
-import React, {useEffect} from "react";
-import Customer from "./Customer";
+import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
+import * as customerService from '../../service/CustomerService'
+
 function CustomerList() {
+
+    const [customers, setCustomer] = useState([]);
+    const [customerTypes, setCustomerType] = useState([]);
+
+    const fetchCustomerType = async () => {
+        let result2 = await customerService.findAllCustomerType();
+        setCustomerType(result2);
+    }
+
+    const ferchCustomer = async () => {
+        let result = await customerService.findAll();
+        setCustomer(result);
+    }
+
+    useEffect(() => {
+        ferchCustomer();
+        fetchCustomerType();
+    }, []);
 
     return (
         <div>
@@ -30,7 +49,7 @@ function CustomerList() {
                 </tr>
                 </thead>
                 <tbody>
-                {Customer.customer.map((customerList, index) =>
+                {customers.map((customerList, index) =>
                     <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{customerList.name}</td>
@@ -40,7 +59,12 @@ function CustomerList() {
                         <td>{customerList.phone}</td>
                         <td>{customerList.email}</td>
                         <td>{customerList.address}</td>
-                        <td>{customerList.customerType.name}</td>
+
+                        <td>{customerTypes.filter((customerTypeId) => (
+                            customerTypeId.id === customerList.customerType
+                        ))[0].name}
+                        </td>
+
                         <td>
                             <NavLink to='/customerUpdate' style={{textDecoration: "none"}}>
                                 <button className="btn btn-outline-secondary" style={{color: "blue"}}>
@@ -56,6 +80,7 @@ function CustomerList() {
                                 </button>
                             </NavLink>
                         </td>
+
                     </tr>
                 )}
                 </tbody>

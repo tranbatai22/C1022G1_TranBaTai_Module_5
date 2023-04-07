@@ -19,21 +19,27 @@ function CustomerCreate() {
                     }
                 }
                 validationSchema={Yup.object({
+
                     name: Yup.string()
-                        .required("Không được để trống"),
+                        .required("Không được để trống")
+                        .matches(/^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/,
+                            "Têm không đúng định dạng"),
                     birthday: Yup.string()
                         .required("Không được để trống"),
                     gender: Yup.string()
                         .required("Không được để trống"),
                     idCard: Yup.string()
-                        .required("Không được để trống"),
+                        .required("Không được để trống")
+                        .matches(/^[0-9]{9}$|^[0-9]{12}$/,
+                            "Cmnd chỉ chưa kí tự số"),
                     phone: Yup.string()
-                        .required("Không được để trống"),
+                        .required("Không được để trống")
+                        .matches(/^(090|091|\(84\)\+90|\(84\)\+91)[0-9]{7}$/,
+                            "Số điện thoại chỉ chứa kí tự số"),
                     email: Yup.string()
-                        .required("Không được để trống"),
+                        .required("Không được để trống")
+                        .email("Email không đúng định dạng"),
                     address: Yup.string()
-                        .required("Không được để trống"),
-                    customerType: Yup.string()
                         .required("Không được để trống")
                 })}
 

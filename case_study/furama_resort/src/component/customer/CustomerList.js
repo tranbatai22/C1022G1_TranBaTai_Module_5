@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Customer from "./Customer";
 import {NavLink} from "react-router-dom";
-
 function CustomerList() {
+
     return (
         <div>
             <center>

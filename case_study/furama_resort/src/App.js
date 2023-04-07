@@ -12,6 +12,7 @@ import FacilityList from "./component/facility/FacilityList";
 import FacilityCreate from "./component/facility/FacilityCreate";
 import FacilityUpdate from "./component/facility/FacilityUpdate";
 import ContractList from "./component/contract/ContractList";
+import CustomerCreate from "./component/customer/CustomerCreate";
 
 function App() {
     return (
@@ -23,7 +24,7 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 {/*customer*/}
                 <Route path='/customerList' element={<CustomerList/>}/>
-                <Route path='/customerCreate' element={<ContractCreate/>}/>
+                <Route path='/customerCreate' element={<CustomerCreate/>}/>
                 <Route path='/customerUpdate' element={<CustomerUpdate/>}/>
                 {/*facility*/}
                 <Route path='/facilityList' element={<FacilityList/>}/>

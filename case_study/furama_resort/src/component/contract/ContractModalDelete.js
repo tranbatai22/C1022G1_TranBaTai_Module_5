@@ -5,7 +5,6 @@ export default function ModalDeleteContract(props) {
     const handleDelete = async(id)=>{
         await contractService.remove(id)
         toast("Xóa thành công")
-        props.getList()
     }
     return (
         <>

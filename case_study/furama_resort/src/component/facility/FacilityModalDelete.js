@@ -6,7 +6,6 @@ export default function FacilityModalDelete(props) {
     const handleDelete = async(id)=>{
         await facilityService.remove(id)
         toast("Xóa thành công")
-        props.getList()
     }
     return (
         <>

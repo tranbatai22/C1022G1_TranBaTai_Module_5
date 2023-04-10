@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import Facility from "./Facility";
 import {NavLink} from "react-router-dom";
 import {Formik, Form, ErrorMessage} from "formik";
 import * as Yup from 'yup';
+import FacilityModalDelete from "./FacilityModalDelete";
 
 function FacilityList() {
+    const [deleteId, setDeleteId] = useState(0)
+    const [deleteName, setDeleteName] = useState("")
+    const getPropsDeleteFacility = (id, name) => {
+        setDeleteId(id);
+        setDeleteName(name);
+    }
     return (
         <div>
             <center>
@@ -62,7 +69,7 @@ function FacilityList() {
                                     type="button"
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
-                                    onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                                    onClick={() => getPropsDeleteFacility(facilityList.id, facilityList.name)}>
                                 Xoá
                             </button>
                         </td>
@@ -72,6 +79,10 @@ function FacilityList() {
                 }
                 </tbody>
             </table>
+            <FacilityModalDelete
+                id={deleteId}
+                name={deleteName}
+            />
         </div>
 
 

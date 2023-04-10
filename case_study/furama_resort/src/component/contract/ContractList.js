@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import Contract from "./Contract";
-import Facility from "../facility/Facility";
-import Customer from "../customer/Customer";
 import {NavLink} from "react-router-dom";
+import ContractModalDelete from "./ContractModalDelete";
 
 function ContractList() {
+    const [deleteId, setDeleteId] = useState(0)
+    const [deleteName, setDeleteName] = useState("")
+    const getPropsDeleteContract = (id, name) => {
+        setDeleteId(id);
+        setDeleteName(name);
+    }
     return (
         <div>
             <center>
@@ -19,6 +24,7 @@ function ContractList() {
                 <thead>
                 <tr>
                     <th>Stt</th>
+                    <th>Code</th>
                     <th>Facility</th>
                     <th>Customer</th>
                     <th>Date Start</th>
@@ -33,6 +39,7 @@ function ContractList() {
                 {Contract.contract.map((contractList, index) =>
                     <tr key={index}>
                         <td>{index + 1}</td>
+                        <td>{contractList.code}</td>
                         <td>{contractList.facility.name}</td>
                         <td>{contractList.customer.name}</td>
                         <td>{contractList.dateStart}</td>
@@ -51,7 +58,7 @@ function ContractList() {
                                     type="button"
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
-                                    onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                                    onClick={() => getPropsDeleteContract(contractList.id, contractList.code)}>
                                 Xoá
                             </button>
                         </td>
@@ -60,6 +67,10 @@ function ContractList() {
                 )}
                 </tbody>
             </table>
+            <ContractModalDelete
+                id={deleteId}
+                name={deleteName}
+            />
         </div>
     )
 }

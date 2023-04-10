@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import * as customerService from '../../service/CustomerService'
-import CustomerModalDelete from "./CustomerModalDelete";
+import CustomerModalDelete from "../modal_delete/CustomerModalDelete";
 
 function CustomerList() {
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Contract from "./Contract";
 import {NavLink} from "react-router-dom";
-import ContractModalDelete from "./ContractModalDelete";
+import ContractModalDelete from "../modal_delete/ContractModalDelete";
 
 function ContractList() {
     const [deleteId, setDeleteId] = useState(0)

@@ -3,7 +3,7 @@ import Facility from "./Facility";
 import {NavLink} from "react-router-dom";
 import {Formik, Form, ErrorMessage} from "formik";
 import * as Yup from 'yup';
-import FacilityModalDelete from "./FacilityModalDelete";
+import FacilityModalDelete from "../modal_delete/FacilityModalDelete";
 
 function FacilityList() {
     const [deleteId, setDeleteId] = useState(0)

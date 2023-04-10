@@ -3,6 +3,7 @@ import {NavLink} from "react-router-dom";
 
 function Navbar() {
     return (
+        <div className='container-fluid'>
         <div className="row" style={{background: "#046056", height: 60, textAlign: "center"}}>
             <nav className="navbar navbar-expand-lg" style={{background: "#046056"}}>
                 <div className="collapse navbar-collapse container-fluid" id="navbarNavAltMarkup">
@@ -52,7 +53,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-        </div>
+        </div></div>
     )
 }
 

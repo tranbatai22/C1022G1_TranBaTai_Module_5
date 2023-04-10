@@ -8,7 +8,7 @@ function ContractList() {
     return (
         <div>
             <center>
-                <h1>DANH SÁCH HỢP ĐỒNG</h1>
+                <h1>DANH SÁCH HỢP ĐỒNG</h1>x
                 <NavLink to='/facilityUpdate' style={{textDecoration: "none"}}>
                     <button className="btn btn-outline-primary">
                         Thêm mới hợp đồng
@@ -47,13 +47,15 @@ function ContractList() {
                             </NavLink>
                         </td>
                         <td>
-                            <NavLink to='/contractDelete'
-                                     style={{textDecoration: "none", color: "red"}}>
-                                <button className="btn btn-outline-secondary" style={{color: "red"}}>
-                                    Xoá
-                                </button>
-                            </NavLink>
+                            <button className="btn btn-outline-secondary" style={{color: "red"}}
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                                Xoá
+                            </button>
                         </td>
+
                     </tr>
                 )}
                 </tbody>

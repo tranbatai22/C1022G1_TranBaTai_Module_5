@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const findAll = async () => {
     try {
-        return await axios.get('http://localhost:8080/customers');
+        return await axios.get('  http://localhost:8080/customer');
     } catch (error) {
         console.log(error);
     }
@@ -18,7 +18,7 @@ export const findAllCustomerType = async () => {
 
 export const save = async (customer) => {
     try {
-        await axios.post('http://localhost:8080/customers', {...customer})
+        await axios.post('http://localhost:8080/customer', {...customer})
     } catch (error) {
         console.log(error);
     }
@@ -26,7 +26,7 @@ export const save = async (customer) => {
 
 export const remove = async (id) => {
     try {
-        await axios.delete(`http://localhost:8080/customers/${id}`)
+        await axios.delete(`http://localhost:8080/customer/${id}`)
     } catch (error) {
         console.log(error);
     }
@@ -34,7 +34,7 @@ export const remove = async (id) => {
 
 export const detail = async (id) => {
     try {
-        return (await axios.get(`http://localhost:8080/customers/${id}`)).data
+        return (await axios.get(`http://localhost:8080/customer/${id}`)).data
     } catch (error) {
         console.log(error);
     }
@@ -42,7 +42,7 @@ export const detail = async (id) => {
 
 export const update = async (customer) => {
     try {
-        await axios.put(`http://localhost:8080/customers${customer.id}`, {...customer})
+        await axios.put(`http://localhost:8080/customer${customer.id}`, {...customer})
     } catch (error) {
         console.log(error);
     }

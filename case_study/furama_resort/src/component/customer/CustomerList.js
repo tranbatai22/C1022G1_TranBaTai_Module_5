@@ -1,26 +1,36 @@
 import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import * as customerService from '../../service/CustomerService'
+import CustomerModalDelete from "./CustomerModalDelete";
 
 function CustomerList() {
 
     const [customers, setCustomer] = useState([]);
     const [customerTypes, setCustomerType] = useState([]);
 
-    const fetchCustomerType = async () => {
-        let result2 = await customerService.findAllCustomerType();
-        setCustomerType(result2);
-    }
-
     const ferchCustomer = async () => {
         let result = await customerService.findAll();
-        setCustomer(result);
+        setCustomer(result.data);
+        return customers;
+    }
+
+    const ferchCustomerType = async () => {
+        let result = await customerService.findAllCustomerType();
+        setCustomerType(result.data);
+        return customerTypes;
     }
 
     useEffect(() => {
         ferchCustomer();
-        fetchCustomerType();
+        ferchCustomerType();
     }, []);
+
+    const [deleteId, setDeleteId] = useState(0)
+    const [deleteName, setDeleteName] = useState("")
+    const getPropsDeleteCustomer = (id, name) => {
+        setDeleteId(id);
+        setDeleteName(name);
+    }
 
     return (
         <div>
@@ -59,12 +69,11 @@ function CustomerList() {
                         <td>{customerList.phone}</td>
                         <td>{customerList.email}</td>
                         <td>{customerList.address}</td>
-
-                        <td>{customerTypes.filter((customerTypeId) => (
-                            customerTypeId.id === customerList.customerType
-                        ))[0].name}
+                        <td>
+                            {customerTypes.filter(customerType => (
+                                customerType.id == customerList.customerTypeId))
+                                [0]?.name}
                         </td>
-
                         <td>
                             <NavLink to='/customerUpdate' style={{textDecoration: "none"}}>
                                 <button className="btn btn-outline-secondary" style={{color: "blue"}}>
@@ -73,18 +82,23 @@ function CustomerList() {
                             </NavLink>
                         </td>
                         <td>
-                            <NavLink to='/customerDelete'
-                                     style={{textDecoration: "none"}}>
-                                <button className="btn btn-outline-secondary" style={{color: "red"}}>
-                                    Xoá
-                                </button>
-                            </NavLink>
+                            <button className="btn btn-outline-secondary" style={{color: "red"}}
+                                type="button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                               Xoá
+                            </button>
                         </td>
 
                     </tr>
                 )}
                 </tbody>
             </table>
+            <CustomerModalDelete
+                id={deleteId}
+                name={deleteName}
+            />
         </div>
 
     )

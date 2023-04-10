@@ -4,6 +4,7 @@ function Footer() {
     return (
         <footer>
             {/*    Footer*/}
+            <div className='container-fluid'>
             <div className="row" style={{background: "gray"}}>
                 <div className="col-lg-2"/>
                 <div className="col-lg-3" style={{backgroundColor: "#fdfdfe", color: "black"}}>
@@ -84,6 +85,7 @@ function Footer() {
                         © 2018 Furama Resort Danang.
                     </p>
                 </div>
+            </div>
             </div>
         </footer>
 

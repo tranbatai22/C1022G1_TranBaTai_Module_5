@@ -58,13 +58,15 @@ function FacilityList() {
                             </NavLink>
                         </td>
                         <td>
-                            <NavLink to='/facilityDelete'
-                                     style={{textDecoration: "none", color: "red"}}>
-                                <button className="btn btn-outline-secondary" style={{color: "red"}}>
-                                    Xoá
-                                </button>
-                            </NavLink>
+                            <button className="btn btn-outline-secondary" style={{color: "red"}}
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                                Xoá
+                            </button>
                         </td>
+
                     </tr>
                 )
                 }

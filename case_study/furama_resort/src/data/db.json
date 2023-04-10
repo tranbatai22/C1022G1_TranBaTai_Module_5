@@ -9,10 +9,7 @@
       "phone": "0961487519",
       "email": "tranbatai2202@gmail.com",
       "address": "Huế",
-      "customerType": {
-        "id": 1,
-        "name": "VIP"
-      }
+      "customerTypeId": 1
     },
     {
       "id": 2,
@@ -23,10 +20,7 @@
       "phone": "01234589",
       "email": "nghiaml@gmail.com",
       "address": "Đà Nẵng",
-      "customerType": {
-        "id": 2,
-        "name": "Thường"
-      }
+      "customerTypeId": 2
     },
     {
       "id": 3,
@@ -37,10 +31,29 @@
       "phone": "01234589",
       "email": "nghiaml@gmail.com",
       "address": "Đà Nẵng",
-      "customerType": {
-        "id": 2,
-        "name": "Thường"
-      }
+      "customerTypeId": 1
+    },
+    {
+      "name": "Le Thanh Tuan",
+      "birthday": "2023-04-14",
+      "gender": "nam",
+      "idCard": "123456789012",
+      "phone": "0911234567",
+      "email": "tranbatai2202@gmail.com",
+      "address": "aaaa",
+      "customerTypeId": "1",
+      "id": 6
+    },
+    {
+      "name": "Le Thanh Tuan",
+      "birthday": "2023-04-05",
+      "gender": "nam",
+      "idCard": "123456789012",
+      "phone": "0911234567",
+      "email": "tranbatai2202@gmail.com",
+      "address": "aaaa",
+      "customerTypeId": "2",
+      "id": 7
     }
   ],
   "customerType": [
@@ -104,7 +117,7 @@
       "maxPeople": 20,
       "facilityType": {
         "id": 2,
-        "name": "Gold"
+        "name": "Villa"
       },
       "rentType": {
         "id": 1,

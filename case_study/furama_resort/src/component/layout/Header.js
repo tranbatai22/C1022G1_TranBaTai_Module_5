@@ -1,7 +1,8 @@
 import {Component} from "react";
 
 function Header() {
-    return (
+    return(
+        <div className='container-fluid'>
         <div className="row" style={{backgroundColor: "gray", padding: 20}}>
             <div className="col-lg-3">
                 <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png"
@@ -36,7 +37,7 @@ function Header() {
                 </div>
             </div>
         </div>
-
+        </div>
     )
 }
 

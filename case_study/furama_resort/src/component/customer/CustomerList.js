@@ -1,23 +1,21 @@
 import React, {useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import * as customerService from '../../service/CustomerService'
 import CustomerModalDelete from "../modal_delete/CustomerModalDelete";
 
 function CustomerList() {
-
+    const navigate = useNavigate();
     const [customers, setCustomer] = useState([]);
     const [customerTypes, setCustomerType] = useState([]);
 
     const ferchCustomer = async () => {
         let result = await customerService.findAll();
         setCustomer(result.data);
-        return customers;
     }
 
     const ferchCustomerType = async () => {
         let result = await customerService.findAllCustomerType();
         setCustomerType(result.data);
-        return customerTypes;
     }
 
     useEffect(() => {
@@ -30,6 +28,9 @@ function CustomerList() {
     const getPropsDeleteCustomer = (id, name) => {
         setDeleteId(id);
         setDeleteName(name);
+    }
+    const handleUpdate = (id) => {
+        navigate(`/customerUpdate/${id}`)
     }
 
     return (
@@ -45,7 +46,7 @@ function CustomerList() {
             <table className="table table-light">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Stt</th>
                     <th>Name</th>
                     <th>Birthday</th>
                     <th>Gender</th>
@@ -70,24 +71,24 @@ function CustomerList() {
                         <td>{customerList.email}</td>
                         <td>{customerList.address}</td>
                         <td>
-                            {customerTypes.filter(customerType => (
+                                {customerTypes.filter(customerType => (
                                 customerType.id == customerList.customerTypeId))
                                 [0]?.name}
                         </td>
                         <td>
-                            <NavLink to='/customerUpdate' style={{textDecoration: "none"}}>
-                                <button className="btn btn-outline-secondary" style={{color: "blue"}}>
-                                    Chỉnh sửa
-                                </button>
-                            </NavLink>
+                            <button onClick={() => handleUpdate(customerList.id)}
+                                    className="btn btn-outline-secondary"
+                                    style={{color: "blue"}}>
+                                Chỉnh sửa
+                            </button>
                         </td>
                         <td>
                             <button className="btn btn-outline-secondary" style={{color: "red"}}
-                                type="button"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
-                               Xoá
+                                    type="button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteCustomer"
+                                    onClick={() => getPropsDeleteCustomer(customerList.id, customerList.name)}>
+                                Xoá
                             </button>
                         </td>
 
@@ -95,10 +96,15 @@ function CustomerList() {
                 )}
                 </tbody>
             </table>
+
             <CustomerModalDelete
                 id={deleteId}
                 name={deleteName}
+                getShowList={() => {
+                    ferchCustomer();
+                }}
             />
+
         </div>
 
     )

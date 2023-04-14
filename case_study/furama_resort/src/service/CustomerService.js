@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const findAll = async () => {
     try {
-        return await axios.get('  http://localhost:8080/customer');
+        return await axios.get('http://localhost:8080/customer');
     } catch (error) {
         console.log(error);
     }
@@ -42,7 +42,7 @@ export const detail = async (id) => {
 
 export const update = async (customer) => {
     try {
-        await axios.put(`http://localhost:8080/customer${customer.id}`, {...customer})
+        await axios.put(`http://localhost:8080/customer/${customer.id}`, {...customer})
     } catch (error) {
         console.log(error);
     }

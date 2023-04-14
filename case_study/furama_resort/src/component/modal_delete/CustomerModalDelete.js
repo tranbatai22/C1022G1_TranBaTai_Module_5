@@ -1,17 +1,18 @@
 import * as customerService from '../../service/CustomerService';
-import { toast } from 'react-toastify'
+import {toast} from 'react-toastify'
+import React from "react";
 
 export default function CustomerModalDelete(props) {
-
-    const handleDelete = async(id)=>{
+    const handleDelete = async (id) => {
         await customerService.remove(id)
-        toast("Xóa thành công");
+        toast("Xoá thành công");
+        props.getShowList();
     }
     return (
         <>
             <div
                 className="modal fade"
-                id="exampleModal"
+                id="deleteCustomer"
                 tabIndex={-1}
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
@@ -29,7 +30,10 @@ export default function CustomerModalDelete(props) {
                                 aria-label="Close"
                             />
                         </div>
-                        <div className="modal-body">Bạn có chắc chắn muốn xóa khách hàng <span className="text-danger fw-bold">{props.name}</span> không?</div>
+                        <div className="modal-body">Bạn có chắc chắn muốn xóa khách hàng <span
+                            className="text-danger fw-bold">{props.name}
+                        </span> không?
+                        </div>
                         <div className="modal-footer">
                             <button
                                 type="button"
@@ -38,7 +42,8 @@ export default function CustomerModalDelete(props) {
                             >
                                 Hủy
                             </button>
-                            <button onClick={()=>handleDelete(props.id)} type="button" className="btn btn-primary" data-bs-dismiss="modal">
+                            <button onClick={() => handleDelete(props.id)} type="button" className="btn btn-primary"
+                                    data-bs-dismiss="modal">
                                 Xóa
                             </button>
                         </div>

@@ -188,7 +188,6 @@ function CustomerCreate() {
                                             </option>
                                         ))}
                                     </Field>
-
                                 </div>
                             </div>
 

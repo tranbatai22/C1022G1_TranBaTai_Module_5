@@ -25,7 +25,7 @@ function App() {
                 {/*customer*/}
                 <Route path='/customerList' element={<CustomerList/>}/>
                 <Route path='/customerCreate' element={<CustomerCreate/>}/>
-                <Route path='/customerUpdate' element={<CustomerUpdate/>}/>
+                <Route path='/customerUpdate/:id' element={<CustomerUpdate/>}/>
                 {/*facility*/}
                 <Route path='/facilityList' element={<FacilityList/>}/>
                 <Route path='/facilityCreate' element={<FacilityCreate/>}/>

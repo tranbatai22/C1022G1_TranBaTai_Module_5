@@ -1,0 +1,58 @@
+{
+  "sach": [
+    {
+      "id": 1,
+      "maSach": "BO-1111",
+      "tenSach": "Dế mèn phiêu lưu kí",
+      "ngayNhapSach": "12/03/2023",
+      "soLuong": 40,
+      "maTheLoai": 1
+    },
+    {
+      "id": 2,
+      "maSach": "BO-2222",
+      "tenSach": "Lão Hạc",
+      "ngayNhapSach": "22/02/2022",
+      "soLuong": 33,
+      "maTheLoai": 2
+    },
+    {
+      "id": 3,
+      "maSach": "BO-3333",
+      "tenSach": "Tắt đèn",
+      "ngayNhapSach": "23/01/2020",
+      "soLuong": 20,
+      "maTheLoai": 3
+    },
+    {
+      "maSach": "BO-2222",
+      "tenSach": "Sóng",
+      "ngayNhapSach": "2023-04-10",
+      "soLuong": 34,
+      "maTheLoai": "3",
+      "id": 4
+    },
+    {
+      "maSach": "BO-5555",
+      "tenSach": "Truyện Kiều",
+      "ngayNhapSach": "2023-03-29",
+      "soLuong": 12,
+      "maTheLoai": "1",
+      "id": 5
+    }
+  ],
+  "theLoai": [
+    {
+      "id": 1,
+      "name": "Truyện kí"
+    },
+    {
+      "id": 2,
+      "name": "Lịch sử"
+    },
+    {
+      "id": 3,
+      "name": "Khoa học"
+    }
+  ]
+}

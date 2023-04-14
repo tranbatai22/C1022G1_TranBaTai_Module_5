@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Facility from "./Facility";
 import {NavLink} from "react-router-dom";
-import {Formik, Form, ErrorMessage} from "formik";
-import * as Yup from 'yup';
 import FacilityModalDelete from "../modal_delete/FacilityModalDelete";
+import {toast} from "react-toastify";
+import {findAll} from "../../service/FacilityService";
 
 function FacilityList() {
     const [deleteId, setDeleteId] = useState(0)
@@ -82,6 +82,10 @@ function FacilityList() {
             <FacilityModalDelete
                 id={deleteId}
                 name={deleteName}
+                getShowList = {() => {
+                    toast("Thêm mới thành công");
+                    findAll();
+                }}
             />
         </div>
 

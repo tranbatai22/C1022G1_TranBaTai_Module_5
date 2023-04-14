@@ -1,45 +1,78 @@
-import React from "react";
-import {ErrorMessage, Field, Formik} from "formik";
-import * as Yup from 'yup';
+import React, {useEffect, useState} from "react";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import {useNavigate, useParams} from "react-router";
+import * as customerService from '../../service/CustomerService'
+
+// import * as Yup from 'yup';
 
 function CustomerUpdate() {
+    let param = useParams();
+    let navigate = useNavigate();
+    const [customers, setCustomer] = useState();
+    const fetchCustomer = async () => {
+        const detail = await customerService.detail(param.id);
+        setCustomer(detail);
+    }
+
+    const [customerTypes, setCustomerType] = useState([]);
+
+    const getCustomerType = async () => {
+        const result = await customerService.findAllCustomerType();
+        setCustomerType(result.data);
+        return customerTypes;
+    }
+
+    useEffect(() => {
+        fetchCustomer();
+        getCustomerType();
+    }, []);
+
+    if (!customers) {
+        return null;
+    }
     return (
         <Formik initialValues={{
-            name: "",
-            birthday: "",
-            gender: "",
-            idCard: "",
-            phone: "",
-            email: "",
-            address: "",
-            customerType: []
+            name: customers?.name,
+            birthday: customers?.birthday,
+            gender: customers?.gender,
+            idCard: customers?.idCard,
+            phone: customers?.phone,
+            email: customers?.email,
+            address: customers?.address,
+            customerType: customers?.customerType
         }}
-                validationSchema={Yup.object({
-                        name: Yup.string()
-                            .required("Không được để trống")
-                            .matches(/^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/,
-                                "Têm không đúng định dạng"),
-                        birthday: Yup.string()
-                            .required("Không được để trống"),
-                        gender: Yup.string()
-                            .required("Không được để trống"),
-                        idCard: Yup.string()
-                            .required("Không được để trống")
-                            .matches(/^[0-9]{9}$|^[0-9]{12}$/,
-                                "Cmnd chỉ chưa kí tự số"),
-                        phone: Yup.string()
-                            .required("Không được để trống")
-                            .matches(/^(090|091|\(84\)\+90|\(84\)\+91)[0-9]{7}$/,
-                                "Số điện thoại chỉ chứa kí tự số"),
-                        email: Yup.string()
-                            .required("Không được để trống")
-                            .email("Email không đúng định dạng"),
-                        address: Yup.string()
-                            .required("Không được để trống")
-                    }
-                )}
+            // validationSchema={Yup.object({
+            //         name: Yup.string()
+            //             .required("Không được để trống")
+            //             .matches(/^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/,
+            //                 "Têm không đúng định dạng"),
+            //         birthday: Yup.string()
+            //             .required("Không được để trống"),
+            //         gender: Yup.string()
+            //             .required("Không được để trống"),
+            //         idCard: Yup.string()
+            //             .required("Không được để trống")
+            //             .matches(/^[0-9]{9}$|^[0-9]{12}$/,
+            //                 "Cmnd chỉ chưa kí tự số"),
+            //         phone: Yup.string()
+            //             .required("Không được để trống")
+            //             .matches(/^(090|091|\(84\)\+90|\(84\)\+91)[0-9]{7}$/,
+            //                 "Số điện thoại chỉ chứa kí tự số"),
+            //         email: Yup.string()
+            //             .required("Không được để trống")
+            //             .email("Email không đúng định dạng"),
+            //         address: Yup.string()
+            //             .required("Không được để trống")
+            //     }
+            // )}
                 onSubmit={(values) => {
-                    console.log(values);
+                    const update = async () => {
+                        console.log(values);
+                        await customerService.update(values);
+                        alert("Chỉnh sửa thành công")
+                        navigate('/customerList');
+                    };
+                    update();
                 }}>
 
             <div>
@@ -49,7 +82,7 @@ function CustomerUpdate() {
 
                 <div className='d-flex justify-content-center mt-3'>
                     <form className="w-50 border border-2 border-success p-3 rounded ">
-                        <Field name='id' type='hidden'/>
+                        <Field type="hidden" name="id"/>
 
                         <div className="form-group">
                             <label htmlFor="name" style={{fontWeight: "bold"}}>
@@ -77,21 +110,21 @@ function CustomerUpdate() {
                             </div>
                         </div>
 
-                        <div className="mt-3 form-group">
-                            <label style={{fontWeight: "bold"}}>
-                                Giới tính:<span style={{color: "red"}}>*</span>
-                            </label>
-                            <div className="d-flex">
-                                <label className="d-block me-4">
-                                    <Field type="radio" defaultValue={1} name="gender" defaultChecked=""/>Nam
-                                </label>
-                                <label className="d-block">
-                                    <Field type="radio" defaultValue={0} name="gender"/> Nữ
-                                </label>
+                        <div className='mb-3 form-group'>
+                            <label htmlFor='gender' className='form-label'>Giới tính</label>
+                            <div className='form-check form-check-inline'>
+                                <Field className='form-check-input' type='radio' id='rd-1'
+                                       name='gender'
+                                       value='nam'/>
+                                <label className='form-check-label' htmlFor='rd-1'>Nam</label>
                             </div>
-                            <div>
-                                <ErrorMessage name='gender' component='span' className='form-err text-danger'/>
+                            <div className='form-check form-check-inline'>
+                                <Field className='form-check-input' type='radio' id='rd-2'
+                                       name='gender'
+                                       value='nữ'/>
+                                <label className='form-check-label' htmlFor='rd-2'>Nữ</label>
                             </div>
+                            <ErrorMessage name='gender' component='span' className='form-err text-danger'/>
                         </div>
 
                         <div className="mt-3 form-group">
@@ -152,24 +185,26 @@ function CustomerUpdate() {
                         </div>
 
                         <div className="mt-3 form-group">
-                            <label htmlFor="customerType" style={{fontWeight: "bold"}}>
+                            <label htmlFor="customerTypeId" style={{fontWeight: "bold"}}>
                                 Loại khách hàng:<span style={{color: "red"}}>*</span>
                             </label>
+
                             <div className="input-group">
-                                <select id="customerType" className="form-control" name="customerType">
-                                    <option/>
-                                </select>
-                                <span className="input-group-text"/>
-                            </div>
-                            <div>
-                                <ErrorMessage name='customerType' component='span'
-                                              className='form-err text-danger'/>
+
+                                <Field as='select' name="customerTypeId">
+                                    {customerTypes.map((customerType) => (
+                                        <option key={customerType.id} value={customerType.id}>
+                                            {customerType.name}
+                                        </option>
+                                    ))}
+                                </Field>
+
                             </div>
                         </div>
 
                         <div className="mt-3 text-center">
-                            <button
-                                className="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark">
+                            <button type='submit'
+                                    className="btn btn-info btn-outline-success btn-sm border border-2 border-success text-dark">
                                 -- Save --
                             </button>
                         </div>

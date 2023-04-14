@@ -1,60 +1,41 @@
 import React, {useEffect, useState} from 'react';
 import * as bookService from '../service/BookService';
 import {NavLink} from "react-router-dom";
-import {useNavigate} from "react-router";
 
 function List() {
-    let navigate = useNavigate();
-    const [book, setBook] = useState([]);
+    const [books, setBook] = useState([]);
+    const findAllBook = async () => {
+        const result = await bookService.findAll();
+        setBook(result);
+    };
 
     useEffect(() => {
-        const fetchBook = async () => {
-            let result = await bookService.findAll();
-            setBook(result);
-        };
-        fetchBook();
+        findAllBook();
     }, []);
-
-    const handleDelete = async (id) => {
-        await bookService.remove(id)
-        let res = await bookService.findAll();
-        setBook(res);
-    }
-
-    const handleUpdate = (id) => {
-        navigate(`/update/${id}`)
-    }
 
     return (
         <div>
             <NavLink to='/create'>
                 <button>Add new book</button>
             </NavLink>
-            <table border={1}>
+            <table className='table table--success'>
                 <thead>
-                <th>1</th>
-                <th>Title</th>
+                <tr>
+                <th>Stt</th>
+                <th>Name</th>
                 <th>Quantity</th>
-                <th>Action</th>
+                <th>Date Added</th>
+                <th>Category</th>
+                </tr>
                 </thead>
                 <tbody>
-                {book.map((books, index) =>
+                {books.map((listBook, index) =>
                     <tr key={index}>
-                        <td>{books.id}</td>
-                        <td>{books.title}</td>
-                        <td>{books.quantity}</td>
-                        <td>
-                            <button type='button' onClick={() =>
-                                handleUpdate(books.id)} >
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <button onClick={() =>
-                                handleDelete(books.id)}>
-                                Delete
-                            </button>
-                        </td>
+                        <td>{index + 1}</td>
+                        <td>{listBook.name}</td>
+                        <td>{listBook.quantity}</td>
+                        <td>{listBook.dateAdded}</td>
+                        <td>{listBook.category.name}</td>
                     </tr>
                 )}
                 </tbody>

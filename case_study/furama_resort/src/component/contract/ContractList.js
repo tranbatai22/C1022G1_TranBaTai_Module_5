@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Contract from "./Contract";
 import {NavLink} from "react-router-dom";
 import ContractModalDelete from "../modal_delete/ContractModalDelete";
+import {toast} from "react-toastify";
+import {findAll} from "../../service/ContractService";
 
 function ContractList() {
     const [deleteId, setDeleteId] = useState(0)
@@ -70,6 +72,10 @@ function ContractList() {
             <ContractModalDelete
                 id={deleteId}
                 name={deleteName}
+                getShowList = {() => {
+                    toast("Thêm mới thành công");
+                    findAll();
+                }}
             />
         </div>
     )
